@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boing on Base</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar for horizontal scrolling sections */
+    .scrollbar-thin::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background-color: #2563eb;
+      /* blue-600 */
+      border-radius: 9999px;
+    }
+
+    /* Custom dark mode background */
+    .bg-base-dark {
+      background-color: #061823;
+      /* dark navy/teal base */
+    }
+
+    /* Custom text color for subtle text */
+    .text-subtle {
+      color: #a0aec0;
+    }
+
+    /* Custom focus for buttons */
+    button:focus,
+    a:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    /* Animation for progress bar fill */
+    @keyframes fillProgress {
+      0% {
+        width: 0%
+      }
+
+      100% {
+        width: var(--progress-width);
+      }
+    }
+
+    .progress-bar-fill {
+      animation: fillProgress 1.5s ease forwards;
+    }
+  </style>
+</head>
+
+<body class="bg-[#061823] text-[#bec9cc] font-sans selection:bg-blue-600 selection:text-white">
+
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 max-w-[1200px] mx-auto">
+    <div class="flex items-center gap-4">
+      <div class="bg-[#0f7eff] p-2 rounded-md">
+        <div class="w-5 h-5 bg-[#003da5] rounded-sm"></div>
+      </div>
+      <button
+        class="bg-[#0f7eff] text-white text-xs py-1 px-3 rounded-full font-semibold focus:outline-none focus:ring-2 focus:ring-blue-400">
+        $BOING on Base
+      </button>
+      <nav class="hidden md:flex gap-6 ml-8 text-sm tracking-wide">
+        <a href="#about" class="hover:text-[#0f7eff] transition-colors">About</a>
+        <a href="#tokenomics" class="hover:text-[#0f7eff] transition-colors">Tokenomics</a>
+        <a href="#howto" class="hover:text-[#0f7eff] transition-colors">How to Buy</a>
+        <a href="#roadmap" class="hover:text-[#0f7eff] transition-colors">Roadmap</a>
+        <a href="#memegallery" class="hover:text-[#0f7eff] transition-colors">Meme Gallery</a>
+        <a href="#faq" class="hover:text-[#0f7eff] transition-colors">FAQ</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-3">
+      <button
+        class="bg-[#0f7eff] text-[#061823] px-3 py-1 rounded-md text-sm flex items-center gap-1 hover:bg-[#0c5ed9] transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
+        aria-label="Base Detected Status">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="#061823"
+          stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        Base Detected
+      </button>
+      <!-- <button class="bg-[#00ff7f] text-[#061823] px-5 py-2 rounded-md font-bold hover:bg-[#00e06a] transition-colors focus:outline-none focus:ring-2 focus:ring-green-500">
+        Connect Wallet
+      </button> -->
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-[1200px] mx-auto flex flex-col md:flex-row gap-6 px-6 py-10 border-t border-[#0f7eff33]">
+    <div class="flex-1 space-y-4">
+      <span class="text-[#0f7eff] bg-[#0f7eff33] font-semibold text-xs rounded-full px-3 py-1 inline-block">
+        Not financial advice
+      </span>
+      <h1 class="text-4xl font-bold text-white tracking-tight">Boing</h1>
+      <p class="text-[#95a5a6]">
+        The frog that looks like a doodle you drew in math class… but now it’s a coin.
+        $BOING is silly, messy, and makes zero sense—just like the best memes.
+        Hop in before the next boing.
+      </p>
+
+      <div class="flex flex-wrap gap-3 items-center mt-3">
+        <input type="text" readonly value="0x319a98F546a0131905ED703D7F091f6268262c58"
+          class="bg-[#0f7eff22] rounded-md placeholder:text-[#0f7effaa] px-4 py-2 text-xs text-[#0f7eff] tracking-widest select-all cursor-text w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-[#0f7eff]" />
+        <span class="bg-[#0f7eff] text-white rounded-md text-xs px-3 py-1">On Base</span>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-wrap gap-4 mt-5 items-center">
+        <a href="https://app.uniswap.org/swap?outputCurrency=0x319a98F546a0131905ED703D7F091f6268262c58&chain=base"
+          target="_blank"
+          class="bg-[#00ff7f] text-[#061823] font-semibold px-5 py-2 rounded-md whitespace-nowrap hover:bg-[#00e06a] transition-colors flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#061823"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M12 3v18" />
+          </svg>
+          Buy on Uniswap
+        </a>
+
+        <a href="https://dexscreener.com/base/0x73829353E149F215545db51d31b5B95cDa9f3cDA" target="_blank"
+          class="bg-transparent border border-[#0f7eff] text-[#0f7eff] rounded-md px-3 py-2 text-sm hover:bg-[#0f7eff11] transition-colors">
+          Dexscreener
+        </a>
+
+        <a href="https://x.com/boingonbase" target="_blank"
+          class="bg-transparent border border-[#0f7eff] text-[#0f7eff] rounded-md px-3 py-2 text-sm hover:bg-[#0f7eff11] transition-colors">
+          Twitter
+        </a>
+
+        <a href="https://t.me/boingonbase" target="_blank"
+          class="bg-transparent border border-[#0f7eff] text-[#0f7eff] rounded-md px-3 py-2 text-sm hover:bg-[#0f7eff11] transition-colors">
+          Telegram
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="flex-1 flex justify-center items-center rounded-lg bg-[#0f7eff11] p-8 min-h-[300px]">
+      <img src="img/3.jpg" alt="Boing project illustration"
+        class="rounded-md shadow-lg object-contain max-w-full max-h-full" onerror="this.style.display='none';" />
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about" class="max-w-[1200px] mx-auto px-6 py-10 space-y-6">
+    <h2 class="text-2xl font-bold text-white mb-3">About</h2>
+    <p class="text-[#95a5a6] max-w-4xl">$BOING is a doodle frog memecoin on Base. No polished logos, no
+      fake promises—just a derpy frog, simple, and a bunch of people vibin’ together. If it feels dumb,
+      you’re in the right place.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+      <div class="bg-[#0f7eff11] rounded-lg p-5 text-white">
+        <span class="bg-[#0f7eff] px-3 py-1 rounded-full text-xs font-semibold inline-block mb-2">Pixel Vibes</span>
+        <p class="text-[#95a5a6] text-sm">Doodle art direction and playful interactions.</p>
+      </div>
+      <div class="bg-[#0f7eff11] rounded-lg p-5 text-white">
+        <span class="bg-[#0f7eff] px-3 py-1 rounded-full text-xs font-semibold inline-block mb-2">Base Native</span>
+        <p class="text-[#95a5a6] text-sm">Optimized for fast, low-cost transactions on Base.</p>
+      </div>
+      <div class="bg-[#0f7eff11] rounded-lg p-5 text-white">
+        <span class="bg-[#0f7eff] px-3 py-1 rounded-full text-xs font-semibold inline-block mb-2">Community</span>
+        <p class="text-[#95a5a6] text-sm">Memes, raids, and weekly quests to keep the hop going.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokenomics Section -->
+  <section id="tokenomics" class="bg-[#0f7eff] px-6 py-12">
+    <div class="max-w-[1200px] mx-auto text-white space-y-8">
+      <h2 class="text-2xl font-bold">Tokenomics</h2>
+      <p class="text-[#e0e8ffcc] max-w-lg">Simple and transparent distribution.</p>
+
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Tokenomics Box -->
+        <div class="flex-1 grid grid-cols-1 gap-5 bg-[#051331] rounded-lg p-6 shadow-lg">
+          <div class="flex justify-between px-3 py-2 border-b border-[#0f7eff88] text-sm">
+            <span>Total Supply</span>
+            <span>1,000,000,000 $BOING</span>
+          </div>
+          <div class="flex justify-between px-3 py-2 border-b border-[#0f7eff88] text-sm">
+            <span>Liquidity</span>
+            <span>95%</span>
+          </div>
+          <div class="flex justify-between px-3 py-2 border-b border-[#0f7eff88] text-sm">
+            <span>Treasury / Marketing</span>
+            <span>3%</span>
+          </div>
+          <div class="flex justify-between px-3 py-2 text-sm">
+            <span>Team</span>
+            <span>2%</span>
+          </div>
+        </div>
+
+        <!-- Notes Box -->
+        <div class="flex-1 bg-[#051331] rounded-lg p-6 shadow-lg text-sm">
+          <h3 class="mb-3 font-semibold">Notes</h3>
+          <ul class="list-disc list-inside mb-3 space-y-1">
+            <li>Contract renounced (locked chaos 🐸)</li>
+            <li>Liquidity locked (LBFactory)</li>
+            <li>No taxes (0%, yes really)</li>
+          </ul>
+
+          <label for="contractAddress" class="block mb-1 font-semibold">Contract Address</label>
+          <input id="contractAddress" type="text" readonly value="0x319a98F546a0131905ED703D7F091f6268262c58"
+            class="w-full bg-[#0f7eff22] rounded-md px-3 py-2 mb-4 text-xs text-[#0f7eff] select-all cursor-text" />
+
+          <div class="flex gap-3">
+            <a href="https://basescan.org/token/0x319a98F546a0131905ED703D7F091f6268262c58" target="_blank"
+              class="bg-[#0f7eff] hover:bg-[#0c58d6] rounded-md px-3 py-1 text-xs font-semibold w-full">BaseScan</a>
+            <a href="https://dexscreener.com/base/0x73829353E149F215545db51d31b5B95cDa9f3cDA" target="_blank"
+              class="bg-[#0f7eff] hover:bg-[#0c58d6] rounded-md px-3 py-1 text-xs font-semibold w-full">Dexscreener</a>
+            <a href="https://ape.store/base/0x319a98f546a0131905ed703d7f091f6268262c58" target="_blank"
+              class="bg-[#0f7eff] hover:bg-[#0c58d6] rounded-md px-3 py-1 text-xs font-semibold w-full">Apestore</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- How to Buy Section -->
+  <section id="howto" class="max-w-[1200px] mx-auto px-6 py-10 flex flex-col md:flex-row gap-10">
+    <!-- Steps -->
+    <div class="flex-1 space-y-6">
+      <h2 class="text-2xl font-bold text-white mb-3">How to Buy on Base</h2>
+      <p class="text-[#95a5a6] max-w-lg mb-6">Four simple steps to get your $BOING.</p>
+      <ol class="space-y-4 text-[#95a5a6] font-medium max-w-md">
+        <li class="flex items-center gap-4 bg-[#0f7eff11] rounded-md p-4">
+          <div class="bg-[#0f7eff] text-[#061823] rounded-full h-8 w-8 flex justify-center items-center font-bold">1
+          </div>
+          <span>Get a wallet: Install MetaMask or Coinbase Wallet.</span>
+        </li>
+        <li class="flex items-center gap-4 bg-[#0f7eff11] rounded-md p-4">
+          <div class="bg-[#0f7eff] text-[#061823] rounded-full h-8 w-8 flex justify-center items-center font-bold">2
+          </div>
+          <span>Bridge to Base: Send ETH to Base using the official bridge.</span>
+        </li>
+        <li class="flex items-center gap-4 bg-[#0f7eff11] rounded-md p-4">
+          <div class="bg-[#0f7eff] text-[#061823] rounded-full h-8 w-8 flex justify-center items-center font-bold">3
+          </div>
+          <span>Go to a DEX: Open a Base-supported DEX like Uniswap.</span>
+        </li>
+        <li class="flex items-center gap-4 bg-[#0f7eff11] rounded-md p-4">
+          <div class="bg-[#0f7eff] text-[#061823] rounded-full h-8 w-8 flex justify-center items-center font-bold">4
+          </div>
+          <span>Swap ETH → $BOING: Paste the contract address and confirm swap.</span>
+        </li>
+      </ol>
+      <div class="flex gap-4 mt-4">
+        <a href="#" target="_blank"
+          class="bg-[#00ff7f] text-[#061823] px-6 py-2 rounded-md font-semibold hover:bg-[#00e06a] transition-colors focus:outline-none focus:ring-2 focus:ring-green-500">Buy
+          Link</a>
+        <a href="https://dexscreener.com/base/0x73829353E149F215545db51d31b5B95cDa9f3cDA" target="_blank"
+          class="bg-transparent border border-[#0f7eff] px-6 py-2 rounded-md font-medium hover:bg-[#0f7eff11] text-[#0f7eff] transition-colors">Dexscreener</a>
+      </div>
+    </div>
+
+    <!-- Static Info Card -->
+    <div class="flex-1 bg-[#0f7eff11] rounded-lg p-6 shadow-lg text-white text-sm max-w-md">
+      <h3 class="font-semibold mb-4">Network Info</h3>
+      <div class="grid grid-cols-2 gap-4 text-center">
+        <div class="bg-[#051331] rounded-md p-3">Network</div>
+        <div class="bg-[#0f7eff] text-[#061823] rounded-md p-3 font-semibold">Base</div>
+
+        <div class="bg-[#051331] rounded-md p-3">Token</div>
+        <div class="bg-[#0f7eff] text-[#061823] rounded-md p-3 font-semibold">$BOING</div>
+
+        <div class="bg-[#051331] rounded-md p-3">Tax</div>
+        <div class="bg-[#0f7eff] text-[#061823] rounded-md p-3 font-semibold">0%</div>
+      </div>
+      <p class="mt-4 text-[#a0aec0] text-xs max-w-xs">
+        Swap only on Base network. Always double-check the contract address before buying.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Roadmap Section -->
+  <section id="roadmap" class="bg-[#0f7eff] px-6 py-12">
+    <div class="max-w-[1200px] mx-auto text-white">
+      <h2 class="text-2xl font-bold mb-3">Roadmap</h2>
+      <p class="text-[#e0e8ffcc] max-w-lg mb-8">The frog’s hop plan (subject to pure chaos 🐸).</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="bg-[#051331] rounded-lg p-5 space-y-3">
+          <span class="bg-[#0f7eff] px-3 py-1 rounded-full text-xs font-semibold inline-block w-max">Phase 1</span>
+          <p>Launch on Base, open socials, summon the first wave of memes.</p>
+        </div>
+
+        <div class="bg-[#051331] rounded-lg p-5 space-y-3">
+          <span class="bg-[#0f7eff] px-3 py-1 rounded-full text-xs font-semibold inline-block w-max">Phase 2</span>
+          <p>Listings on trackers, meme contests, early community collabs.</p>
+        </div>
+
+        <div class="bg-[#051331] rounded-lg p-5 space-y-3">
+          <span class="bg-[#0f7eff] px-3 py-1 rounded-full text-xs font-semibold inline-block w-max">Phase 3</span>
+          <p>Community quests, creator rewards, spreading Boing culture.</p>
+        </div>
+
+        <div class="bg-[#051331] rounded-lg p-5 space-y-3">
+          <span class="bg-[#0f7eff] px-3 py-1 rounded-full text-xs font-semibold inline-block w-max">Phase 4</span>
+          <p>More tools, CEX listings, doodle merch for the true degens.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Meme Gallery Section -->
+  <section id="memegallery" class="max-w-[1200px] mx-auto px-6 py-10">
+    <h2 class="text-2xl font-bold text-white mb-3">Meme Gallery</h2>
+    <p class="text-[#95a5a6] mb-6 max-w-lg">boing doodle gallery. Fresh memes from the swamp 🐸.</p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="bg-[#0a0a0a] rounded-md shadow-lg flex items-center justify-center h-48">
+        <img src="img/1.jpg" alt="Boing Meme 1" class="object-contain max-h-full" />
+      </div>
+      <div class="bg-[#0a0a0a] rounded-md shadow-lg flex items-center justify-center h-48">
+        <img src="img/2.jpg" alt="Boing Meme 2" class="object-contain max-h-full" />
+      </div>
+      <div class="bg-[#0a0a0a] rounded-md shadow-lg flex items-center justify-center h-48">
+        <img src="img/3.jpg" alt="Boing Meme 3" class="object-contain max-h-full" />
+      </div>
+      <div class="bg-[#0a0a0a] rounded-md shadow-lg flex items-center justify-center h-48">
+        <img src="img/4.jpg" alt="Boing Meme 4" class="object-contain max-h-full" />
+      </div>
+      <div class="bg-[#0a0a0a] rounded-md shadow-lg flex items-center justify-center h-48">
+        <img src="img/5.jpg" alt="Boing Meme 5" class="object-contain max-h-full" />
+      </div>
+      <div class="bg-[#0a0a0a] rounded-md shadow-lg flex items-center justify-center h-48">
+        <img src="img/6.jpg" alt="Boing Meme 6" class="object-contain max-h-full" />
+      </div>
+      <div class="bg-[#0a0a0a] rounded-md shadow-lg flex items-center justify-center h-48">
+        <img src="img/7.jpg" alt="Boing Meme 7" class="object-contain max-h-full" />
+      </div>
+      <div class="bg-[#0a0a0a] rounded-md shadow-lg flex items-center justify-center h-48">
+        <img src="img/8.jpg" alt="Boing Meme 8" class="object-contain max-h-full" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ Section -->
+  <section id="faq" class="bg-[#0f7eff] px-6 py-10">
+    <div class="max-w-[1200px] mx-auto text-white">
+      <h2 class="text-2xl font-bold mb-6">FAQ</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm max-w-4xl">
+
+        <div class="bg-[#051331] rounded-lg p-5">
+          <h3 class="font-semibold mb-1">What is $BOING?</h3>
+          <p class="text-[#a0aec0]">
+            A community-driven doodle frog meme coin living on Base. Just vibes, no utility.
+          </p>
+        </div>
+
+        <div class="bg-[#051331] rounded-lg p-5">
+          <h3 class="font-semibold mb-1">Is there a tax?</h3>
+          <p class="text-[#a0aec0]">
+            Nope. 0% buy, 0% sell. Clean and fair — the frog hates taxes 🐸.
+          </p>
+        </div>
+
+        <div class="bg-[#051331] rounded-lg p-5">
+          <h3 class="font-semibold mb-1">Where can I buy?</h3>
+          <p class="text-[#a0aec0]">
+            On Base DEX via the links here (Dexscreener, BaseScan, or straight from the swamp).
+          </p>
+        </div>
+
+        <div class="bg-[#051331] rounded-lg p-5">
+          <h3 class="font-semibold mb-1">Is this financial advice?</h3>
+          <p class="text-[#a0aec0]">
+            Absolutely not. This is a meme coin. DYOR and only spend what you can let boing to zero.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer
+    class="max-w-[1200px] mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-[#0f7eff] text-xs gap-4 select-none">
+    <div class="flex gap-4 flex-wrap items-center">
+
+      <!-- Twitter -->
+      <a href="https://x.com/boingonbase" target="_blank" rel="noopener"
+        class="hover:text-[#00ff7f] transition-colors flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.9-2.37 8.6 8.6 0 01-2.72 1.04 4.28 4.28 0 00-7.3 3.9A12.13 12.13 0 013 4.8a4.28 4.28 0 001.32 5.71 4.25 4.25 0 01-1.94-.54v.05a4.28 4.28 0 003.43 4.19 4.28 4.28 0 01-1.93.07 4.28 4.28 0 004 2.98A8.6 8.6 0 012 19.54a12.14 12.14 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.66 8.66 0 0022.46 6z" />
+        </svg>
+        Twitter
+      </a>
+
+      <!-- Telegram -->
+      <a href="https://t.me/boingonbase" target="_blank" rel="noopener"
+        class="hover:text-[#00ff7f] transition-colors flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M21.05 2.54a1.5 1.5 0 00-1.54-.26L3.56 9.27c-1.33.53-1.25 2.48.12 2.9l3.94 1.2 1.53 4.64c.39 1.2 1.94 1.58 2.82.68l2.16-2.2 3.86 2.83c.9.66 2.19.16 2.45-.9l3.46-14.51a1.5 1.5 0 00-.85-1.76z" />
+        </svg>
+        Telegram
+      </a>
+
+      <!-- Dexscreener -->
+      <a href="https://dexscreener.com/base/0x73829353E149F215545db51d31b5B95cDa9f3cDA" target="_blank" rel="noopener"
+        class="hover:text-[#00ff7f] transition-colors flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM11 14h2v2h-2v-2zm0-8h2v6h-2V6z" />
+        </svg>
+        Dexscreener
+      </a>
+
+      <!-- Uniswap -->
+      <a href="https://app.uniswap.org/swap?outputCurrency=0x319a98F546a0131905ED703D7F091f6268262c58&chain=base"
+        target="_blank" rel="noopener" class="hover:text-[#00ff7f] transition-colors flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12 6.47 2 12 2z" />
+        </svg>
+        Uniswap
+      </a>
+
+      <!-- Warpcast (placeholder, optional aktif nanti) -->
+      <a href="#" class="opacity-50 cursor-not-allowed flex items-center gap-1" aria-disabled="true" tabindex="-1">
+        Warpcast
+      </a>
+    </div>
+
+    <div class="text-center md:text-right">
+      © BOING — Due to meme + SEO meta please no ads or dead
+    </div>
+  </footer>
+
+
+  <!-- No extra JS logic needed currently, minimal interaction handled by focus states -->
+
+</body>
+
+</html>
